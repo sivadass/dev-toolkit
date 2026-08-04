@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DevToolkit — Free client-side developer tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles/tokens.css" />
+    <link rel="stylesheet" href="assets/styles/base.css" />
+    <link rel="stylesheet" href="assets/styles/layout.css" />
+    <link rel="stylesheet" href="assets/styles/components.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <div class="page">
+      <div class="shell shell--blob">
+        <header class="site-header">
+          <a class="brand" href="index.html">Dev<span class="brand__accent">Toolkit</span></a>
+          <div class="header-actions">
+            <label class="visually-hidden" for="tool-search">Search tools</label>
+            <input
+              id="tool-search"
+              class="header-search"
+              type="search"
+              placeholder="Search tools"
+              disabled
+              aria-disabled="true"
+              title="Search coming in a later build"
+            />
+            <a class="btn btn--ghost" href="ui-kit.html">UI kit</a>
+          </div>
+        </header>
+        <main id="main" class="home">
+          <p class="home__kicker">Client-side · Private</p>
+          <h1>Tools that stay in your browser</h1>
+          <p class="home__lead">
+            Compress, compare, encode — free utilities that never upload your data.
+          </p>
+          <div class="tool-grid">
+            <a class="tool-card" href="image-compressor.html">
+              <span class="tool-card__icon material-symbols-rounded" aria-hidden="true">image</span>
+              <span class="tool-card__title">Image compressor</span>
+              <span class="tool-card__desc">Shrink PNG &amp; JPG locally</span>
+            </a>
+            <a class="tool-card" href="qr-code-generator.html">
+              <span class="tool-card__icon material-symbols-rounded" aria-hidden="true">qr_code_2</span>
+              <span class="tool-card__title">QR Code generator</span>
+              <span class="tool-card__desc">Create downloadable QR codes</span>
+            </a>
+            <a class="tool-card" href="json-comparer.html">
+              <span class="tool-card__icon material-symbols-rounded" aria-hidden="true">data_object</span>
+              <span class="tool-card__title">JSON comparer</span>
+              <span class="tool-card__desc">Diff two JSON payloads</span>
+            </a>
+            <a class="tool-card" href="text-comparer.html">
+              <span class="tool-card__icon material-symbols-rounded" aria-hidden="true">compare_arrows</span>
+              <span class="tool-card__title">Text comparer</span>
+              <span class="tool-card__desc">Side-by-side text diff</span>
+            </a>
+            <a class="tool-card" href="base64.html">
+              <span class="tool-card__icon material-symbols-rounded" aria-hidden="true">code</span>
+              <span class="tool-card__title">Base64</span>
+              <span class="tool-card__desc">Encode and decode strings</span>
+            </a>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
