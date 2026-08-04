@@ -65,6 +65,41 @@
             </div>
           </section>
 
+          <section class="state-grid__section" aria-labelledby="file-drop-heading">
+            <h2 id="file-drop-heading">File drop</h2>
+            <div class="field">
+              <label class="field__label" for="demo-file-single">Single image</label>
+              <div class="file-drop" data-file-drop data-multiple="false">
+                <input
+                  class="file-drop__input"
+                  id="demo-file-single"
+                  type="file"
+                  accept="image/png,image/jpeg,image/webp,image/gif"
+                />
+                <div class="file-drop__idle" data-file-drop-idle>
+                  <span class="file-drop__icon material-symbols-rounded" aria-hidden="true">upload_file</span>
+                  <p class="file-drop__title">Drop an image here</p>
+                  <p class="file-drop__subtitle">or <span>browse</span></p>
+                </div>
+                <ul class="file-drop__list" data-file-drop-list hidden></ul>
+              </div>
+              <p class="field__hint">Single file — new pick replaces the previous. Thumbnail when image.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="demo-file-multi">Multiple files</label>
+              <div class="file-drop" data-file-drop data-multiple="true">
+                <input class="file-drop__input" id="demo-file-multi" type="file" />
+                <div class="file-drop__idle" data-file-drop-idle>
+                  <span class="file-drop__icon material-symbols-rounded" aria-hidden="true">upload_file</span>
+                  <p class="file-drop__title">Drop files here</p>
+                  <p class="file-drop__subtitle">or <span>browse</span></p>
+                </div>
+                <ul class="file-drop__list" data-file-drop-list hidden></ul>
+              </div>
+              <p class="field__hint">Multiple files — chips stack; non-images use a draft icon.</p>
+            </div>
+          </section>
+
           <section class="state-grid__section" aria-labelledby="alerts-heading">
             <h2 id="alerts-heading">Alerts</h2>
             <div class="alert" role="status">Neutral informational message.</div>
@@ -86,5 +121,6 @@
         </main>
       </div>
     </div>
+    <script src="assets/scripts/file-drop.js"></script>
   </body>
 </html>
