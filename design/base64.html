@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Base64 — DevToolkit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles/tokens.css" />
+    <link rel="stylesheet" href="assets/styles/base.css" />
+    <link rel="stylesheet" href="assets/styles/layout.css" />
+    <link rel="stylesheet" href="assets/styles/components.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <div class="page">
+      <div class="shell">
+        <header class="site-header">
+          <a class="brand" href="index.html">Dev<span class="brand__accent">Toolkit</span></a>
+          <div class="header-actions">
+            <a class="btn btn--ghost" href="index.html">All tools</a>
+            <button
+              class="menu-toggle"
+              type="button"
+              data-nav-toggle
+              aria-controls="tool-sidebar"
+              aria-expanded="false"
+            >
+              Menu
+            </button>
+          </div>
+        </header>
+        <div class="tool-layout">
+          <div class="sidebar-backdrop" data-nav-backdrop></div>
+          <aside
+            id="tool-sidebar"
+            class="tool-sidebar"
+            data-nav-sidebar
+            tabindex="-1"
+            aria-label="Tools"
+          >
+            <p class="tool-sidebar__label">Tools</p>
+            <nav>
+              <ul class="tool-nav">
+                <li>
+                  <a class="tool-nav__link" href="image-compressor.html"
+                    ><span class="tool-nav__icon" aria-hidden="true"></span>Image compressor</a
+                  >
+                </li>
+                <li>
+                  <a class="tool-nav__link" href="qr-code-generator.html"
+                    ><span class="tool-nav__icon" aria-hidden="true"></span>QR Code</a
+                  >
+                </li>
+                <li>
+                  <a class="tool-nav__link" href="json-comparer.html"
+                    ><span class="tool-nav__icon" aria-hidden="true"></span>JSON comparer</a
+                  >
+                </li>
+                <li>
+                  <a class="tool-nav__link" href="text-comparer.html"
+                    ><span class="tool-nav__icon" aria-hidden="true"></span>Text comparer</a
+                  >
+                </li>
+                <li>
+                  <a class="tool-nav__link is-active" href="base64.html" aria-current="page"
+                    ><span class="tool-nav__icon" aria-hidden="true"></span>Base64</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </aside>
+          <main id="main" class="tool-main">
+            <div class="tool-main__header">
+              <div>
+                <h1>Base64</h1>
+                <p class="tool-main__hint">Encode or decode Base64 in your browser.</p>
+              </div>
+              <div class="stack">
+                <button class="btn btn--secondary" type="button">Encode</button>
+                <button class="btn btn--primary" type="button">Decode</button>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__label" for="base64-input">Input</label>
+              <textarea class="field__control" id="base64-input" rows="8">DevToolkit</textarea>
+            </div>
+            <div class="field">
+              <label class="field__label" for="base64-output">Output</label>
+              <textarea class="field__control" id="base64-output" rows="8" readonly placeholder="Result appears here"></textarea>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+    <script src="assets/scripts/nav.js"></script>
+  </body>
+</html>
