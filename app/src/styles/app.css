@@ -1,0 +1,66 @@
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.tool-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: var(--space-4);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-large);
+  background: var(--white);
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.tool-card-link:hover,
+.tool-card-link:focus-visible {
+  border-color: var(--primary-brand);
+  outline: none;
+}
+
+.preview-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .preview-split {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.preview-pane {
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-large);
+  padding: var(--space-4);
+  background: var(--white);
+  min-height: 200px;
+}
+
+.preview-pane img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: var(--space-3);
+}
+
+.options-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .options-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,0 +1,14 @@
+:root {
+  --primary-brand: #0c0a5d;
+}
+
+.brand-wordmark {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.25rem;
+  color: var(--text-default);
+  text-decoration: none;
+}
+
+.brand-wordmark__accent {
+  color: var(--primary-brand);
+}
