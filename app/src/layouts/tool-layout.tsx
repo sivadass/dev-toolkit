@@ -1,14 +1,7 @@
-import { AppShell, Button, Container } from "cleanplate";
-import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { AppShell, Container } from "cleanplate";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { SiteHeader } from "../components/site-header";
 import { getToolMenuItems } from "../config/tools";
-
-function BrandLink() {
-  return (
-    <Link to="/" className="brand-wordmark">
-      Dev<span className="brand-wordmark__accent">Toolkit</span>
-    </Link>
-  );
-}
 
 export function ToolLayout() {
   const navigate = useNavigate();
@@ -20,20 +13,7 @@ export function ToolLayout() {
 
   return (
     <AppShell
-      header={{
-        menuItems,
-        showCenterMenu: false,
-        activeMenuItem: location.pathname,
-        onMenuItemClick: (item) => navigate(String(item.value)),
-        headerLeft: <BrandLink />,
-        headerRight: (
-          <Button variant="ghost" size="small" onClick={() => navigate("/")}>
-            All tools
-          </Button>
-        ),
-        size: "medium",
-        variant: "light",
-      }}
+      header={<SiteHeader />}
       sidebar={{
         items: menuItems,
         activeItem: location.pathname,
@@ -42,6 +22,7 @@ export function ToolLayout() {
         size: "medium",
       }}
       sidebarWidth="240px"
+      mobileSidebarDrawer={false}
     >
       <Container padding="4">
         <Outlet />
