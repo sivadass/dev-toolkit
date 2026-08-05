@@ -179,3 +179,89 @@
   flex-wrap: wrap;
   gap: var(--space-2);
 }
+
+.json-split-panes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .json-split-panes {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.json-pane-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.json-pane-actions--spaced {
+  margin-top: var(--space-4);
+}
+
+.json-pane-actions--tight {
+  margin-top: var(--space-3);
+}
+
+.json-diff-list {
+  list-style: none;
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+}
+
+.json-diff-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-1) var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 6px;
+  background: var(--surface-muted, #f9fafb);
+}
+
+.json-diff-item__badge {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.json-diff-item--added .json-diff-item__badge {
+  color: #15803d;
+}
+
+.json-diff-item--removed .json-diff-item__badge {
+  color: #b91c1c;
+}
+
+.json-diff-item--changed .json-diff-item__badge {
+  color: #a16207;
+}
+
+.json-diff-item__path {
+  grid-column: 2;
+  grid-row: 1;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.json-diff-item__values {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  word-break: break-word;
+  color: var(--text-muted, #4b5563);
+}
+
+.json-diff-item__arrow {
+  margin: 0 0.4em;
+}

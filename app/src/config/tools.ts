@@ -32,7 +32,7 @@ export const TOOLS: ToolDefinition[] = [
     description: "Diff two JSON payloads",
     icon: "data_object",
     path: "/tools/json-comparer",
-    status: "coming-soon",
+    status: "ready",
   },
   {
     id: "text-comparer",
