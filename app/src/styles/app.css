@@ -1,7 +1,3 @@
-.home__hero {
-  max-width: 40rem;
-}
-
 .home__kicker {
   color: var(--primary-brand);
   font-weight: 600;
@@ -12,7 +8,6 @@
 
 .home__lead {
   color: var(--text-subtle);
-  max-width: 36rem;
   font-size: 1.0625rem;
   line-height: 1.55;
 }

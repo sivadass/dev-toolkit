@@ -5,7 +5,7 @@ import { TOOLS } from "../config/tools";
 export function HomePage() {
   return (
     <div className="home">
-      <section className="home__hero" aria-labelledby="home-heading">
+      <section aria-labelledby="home-heading">
         <Typography variant="small" margin="0" className="home__kicker">
           Client-side · Private
         </Typography>
