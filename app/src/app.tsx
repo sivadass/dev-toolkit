@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { ImageCompressorPage } from "./features/image-compressor/image-compressor-page";
+import { QrCodeGeneratorPage } from "./features/qr-code-generator/qr-code-generator-page";
 import { HomeLayout } from "./layouts/home-layout";
 import { ToolLayout } from "./layouts/tool-layout";
 import { ComingSoonPage } from "./pages/coming-soon-page";
@@ -14,6 +15,7 @@ export function App() {
       </Route>
       <Route path="/tools" element={<ToolLayout />}>
         <Route path="image-compressor" element={<ImageCompressorPage />} />
+        <Route path="qr-code-generator" element={<QrCodeGeneratorPage />} />
         <Route path=":toolId" element={<ComingSoonPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />

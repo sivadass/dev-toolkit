@@ -2,10 +2,10 @@ import { describe, expect, it } from "vitest";
 import { TOOLS, getToolById, getToolMenuItems } from "./tools";
 
 describe("tools registry", () => {
-  it("lists five tools with image compressor ready", () => {
+  it("lists five tools with image compressor and QR ready", () => {
     expect(TOOLS).toHaveLength(5);
     expect(getToolById("image-compressor")?.status).toBe("ready");
-    expect(getToolById("qr-code-generator")?.status).toBe("coming-soon");
+    expect(getToolById("qr-code-generator")?.status).toBe("ready");
   });
 
   it("returns menu items with path values", () => {

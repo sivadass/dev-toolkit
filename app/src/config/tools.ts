@@ -24,7 +24,7 @@ export const TOOLS: ToolDefinition[] = [
     description: "Create downloadable QR codes",
     icon: "qr_code_2",
     path: "/tools/qr-code-generator",
-    status: "coming-soon",
+    status: "ready",
   },
   {
     id: "json-comparer",
