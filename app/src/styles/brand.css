@@ -1,0 +1,48 @@
+:root {
+  --primary-brand: #0c0a5d;
+}
+
+.brand-wordmark {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  color: var(--text-default);
+  text-decoration: none;
+}
+
+.brand-wordmark__accent {
+  color: var(--primary-brand);
+}
+
+.site-header {
+  box-sizing: border-box;
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+}
+
+.site-header > * {
+  width: 100%;
+}
+
+.site-header__actions-slot {
+  display: inline-block;
+  height: 40px;
+  width: 1px;
+  visibility: hidden;
+}
+
+.home-shell {
+  min-height: 100vh;
+  background: var(--gray-50);
+}
+
+.home-shell__main {
+  padding-bottom: var(--space-8);
+}
+
+.home {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+}
