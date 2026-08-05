@@ -51,6 +51,7 @@ Feature-sliced Vite SPA. A single **tools registry** drives the home grid, route
 | `*` | `NotFoundPage` |
 
 `image-compressor` uses a dedicated route declaration **above** the parametric route so it never hits Coming soon.
+
 ### Tools registry
 
 Single module (e.g. `app/src/config/tools.ts`) exports:
