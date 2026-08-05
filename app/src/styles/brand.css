@@ -4,11 +4,21 @@
 
 .brand-wordmark {
   font-family: "DM Serif Display", serif;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
   color: var(--text-default);
   text-decoration: none;
 }
 
 .brand-wordmark__accent {
   color: var(--primary-brand);
+}
+
+.home-shell {
+  min-height: 100vh;
+  background: var(--gray-50);
+}
+
+.home-shell__main {
+  padding-bottom: var(--space-8);
 }

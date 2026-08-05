@@ -11,7 +11,7 @@ function BrandLink() {
 
 export function HomeLayout() {
   return (
-    <>
+    <div className="home-shell">
       <Header
         menuItems={[]}
         showCenterMenu={false}
@@ -19,9 +19,11 @@ export function HomeLayout() {
         size="medium"
         variant="light"
       />
-      <Container padding="6" width="extra-large">
-        <Outlet />
-      </Container>
-    </>
+      <main id="main" className="home-shell__main">
+        <Container padding={["6", "y-8"]} width="extra-large">
+          <Outlet />
+        </Container>
+      </main>
+    </div>
   );
 }
