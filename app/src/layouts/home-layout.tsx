@@ -20,7 +20,7 @@ export function HomeLayout() {
         variant="light"
       />
       <main id="main" className="home-shell__main">
-        <Container padding={["6", "y-8"]} width="extra-large">
+        <Container padding={["6", "y-8"]} width="full">
           <Outlet />
         </Container>
       </main>

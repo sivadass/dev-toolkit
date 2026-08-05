@@ -23,8 +23,20 @@
 
 .tool-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .tool-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .tool-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .tool-card-link {

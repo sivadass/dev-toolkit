@@ -22,3 +22,9 @@
 .home-shell__main {
   padding-bottom: var(--space-8);
 }
+
+.home {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+}
