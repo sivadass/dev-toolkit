@@ -1,12 +1,22 @@
-import { Typography, Container } from "cleanplate";
+import { Route, Routes } from "react-router-dom";
+import { ImageCompressorPage } from "./features/image-compressor/image-compressor-page";
+import { HomeLayout } from "./layouts/home-layout";
+import { ToolLayout } from "./layouts/tool-layout";
+import { ComingSoonPage } from "./pages/coming-soon-page";
+import { HomePage } from "./pages/home-page";
+import { NotFoundPage } from "./pages/not-found-page";
 
 export function App() {
   return (
-    <Container padding="6">
-      <Typography variant="h1">DevToolkit</Typography>
-      <Typography variant="p" margin="t-2">
-        Scaffold OK
-      </Typography>
-    </Container>
+    <Routes>
+      <Route element={<HomeLayout />}>
+        <Route index element={<HomePage />} />
+      </Route>
+      <Route path="/tools" element={<ToolLayout />}>
+        <Route path="image-compressor" element={<ImageCompressorPage />} />
+        <Route path=":toolId" element={<ComingSoonPage />} />
+      </Route>
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
   );
 }
