@@ -1,4 +1,4 @@
-import { AppShell, Button } from "cleanplate";
+import { AppShell, Button, Container } from "cleanplate";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { getToolMenuItems } from "../config/tools";
 
@@ -43,7 +43,9 @@ export function ToolLayout() {
       }}
       sidebarWidth="240px"
     >
-      <Outlet />
+      <Container padding="4">
+        <Outlet />
+      </Container>
     </AppShell>
   );
 }
