@@ -279,3 +279,106 @@
 .json-diff-item__arrow {
   margin: 0 0.4em;
 }
+
+.json-visualiser {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.json-visualiser__workspace {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  min-height: 28rem;
+}
+
+@media (min-width: 900px) {
+  .json-visualiser__workspace {
+    grid-template-columns: minmax(16rem, 2fr) minmax(20rem, 3fr);
+  }
+}
+
+.json-visualiser__left,
+.json-visualiser__right {
+  display: flex;
+  flex-direction: column;
+  min-height: 24rem;
+  border: 1px solid var(--gray-200, #e5e7eb);
+  border-radius: var(--radius-medium, 6px);
+  background: var(--white, #fff);
+  overflow: hidden;
+}
+
+.json-visualiser__toolbar {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--gray-200, #e5e7eb);
+}
+
+.json-visualiser__editor,
+.json-visualiser__tree {
+  flex: 1;
+  overflow: auto;
+  padding: var(--space-3);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+}
+
+.json-visualiser__editor textarea {
+  width: 100%;
+  height: 100%;
+  min-height: 20rem;
+  border: none;
+  resize: vertical;
+  font: inherit;
+  background: transparent;
+}
+
+.json-visualiser__graph {
+  flex: 1;
+  min-height: 24rem;
+}
+
+.json-graph-node {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--gray-300, #d1d5db);
+  border-radius: 6px;
+  background: #fff;
+  font-size: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 6%);
+}
+
+.json-graph-node__label {
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+  color: var(--primary-brand, #0c0a5d);
+}
+
+.json-graph-node__rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.json-graph-node__key {
+  color: var(--gray-600, #4b5563);
+}
+
+.json-visualiser__status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--text-muted, #4b5563);
+}
+
+.json-visualiser__status--valid {
+  color: #15803d;
+}
+
+.json-visualiser__status--invalid {
+  color: #b91c1c;
+}
