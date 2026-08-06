@@ -118,20 +118,24 @@ export function QrCodeGeneratorPage() {
             margin="0"
             dataTestId="qr-ecc"
           />
-          <FormControls.Input
+          <FormControls.ColorPicker
             label="Foreground"
-            type="color"
             value={foreground}
-            onChange={(e) => setForeground(e.target.value)}
+            onChange={(color) => {
+              if (color) setForeground(color);
+            }}
+            clearable={false}
             isFluid
             margin="0"
             dataTestId="qr-foreground"
           />
-          <FormControls.Input
+          <FormControls.ColorPicker
             label="Background"
-            type="color"
             value={background}
-            onChange={(e) => setBackground(e.target.value)}
+            onChange={(color) => {
+              if (color) setBackground(color);
+            }}
+            clearable={false}
             isFluid
             margin="0"
             dataTestId="qr-background"
