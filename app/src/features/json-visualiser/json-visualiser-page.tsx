@@ -40,6 +40,19 @@ export function JsonVisualiserPage() {
             >
               Tree
             </Button>
+            <div
+              className={
+                isValid
+                  ? "json-visualiser__status json-visualiser__status--valid"
+                  : "json-visualiser__status json-visualiser__status--invalid"
+              }
+              role="status"
+            >
+              <Icon name={isValid ? "check_circle" : "error"} size="small" aria-hidden />
+              <Typography variant="small" margin="0">
+                {isValid ? "Valid" : `Invalid${parseError ? `: ${parseError}` : ""}`}
+              </Typography>
+            </div>
           </div>
 
           {leftMode === "text" ? (
@@ -49,7 +62,6 @@ export function JsonVisualiserPage() {
                 value={jsonText}
                 onChange={(event) => setJsonText(event.target.value)}
                 isFluid
-                rows={20}
               />
             </div>
           ) : (
@@ -60,20 +72,6 @@ export function JsonVisualiserPage() {
         <section className="json-visualiser__right" aria-label="JSON graph">
           <JsonGraphPane nodes={nodes} edges={edges} />
         </section>
-      </div>
-
-      <div
-        className={
-          isValid
-            ? "json-visualiser__status json-visualiser__status--valid"
-            : "json-visualiser__status json-visualiser__status--invalid"
-        }
-        role="status"
-      >
-        <Icon name={isValid ? "check_circle" : "error"} size="small" aria-hidden />
-        <Typography variant="small" margin="0">
-          {isValid ? "Valid" : `Invalid${parseError ? `: ${parseError}` : ""}`}
-        </Typography>
       </div>
     </div>
   );
