@@ -1,7 +1,12 @@
-import { Button, FormControls, Icon, PageHeader, Typography } from "cleanplate";
+import { FormControls, Icon, PageHeader, Typography } from "cleanplate";
 import { JsonGraphPane } from "./json-graph-pane";
 import { JsonTreePane } from "./json-tree-pane";
 import { useJsonVisualiser } from "./use-json-visualiser";
+
+const LEFT_MODE_OPTIONS = [
+  { label: "Text", value: "text" },
+  { label: "Tree", value: "tree" },
+] as const;
 
 export function JsonVisualiserPage() {
   const {
@@ -26,20 +31,15 @@ export function JsonVisualiserPage() {
       <div className="json-visualiser__workspace">
         <section className="json-visualiser__left" aria-label="JSON input">
           <div className="json-visualiser__toolbar">
-            <Button
-              variant={leftMode === "text" ? "solid" : "outline"}
+            <FormControls.SegmentedControl
+              label="Editor view"
+              name="json-visualiser-left-mode"
               size="small"
-              onClick={() => setLeftMode("text")}
-            >
-              Text
-            </Button>
-            <Button
-              variant={leftMode === "tree" ? "solid" : "outline"}
-              size="small"
-              onClick={() => setLeftMode("tree")}
-            >
-              Tree
-            </Button>
+              value={leftMode}
+              onChange={(value) => setLeftMode(String(value) as "text" | "tree")}
+              margin="0"
+              options={[...LEFT_MODE_OPTIONS]}
+            />
             <div
               className={
                 isValid
@@ -55,18 +55,22 @@ export function JsonVisualiserPage() {
             </div>
           </div>
 
-          {leftMode === "text" ? (
-            <div className="json-visualiser__editor">
-              <FormControls.TextArea
-                label="JSON input"
-                value={jsonText}
-                onChange={(event) => setJsonText(event.target.value)}
-                isFluid
-              />
-            </div>
-          ) : (
-            <JsonTreePane value={parsedValue} />
-          )}
+          <div className="json-visualiser__pane-body">
+            {leftMode === "text" ? (
+              <div className="json-visualiser__editor">
+                <FormControls.TextArea
+                  label="JSON input"
+                  value={jsonText}
+                  onChange={(event) => setJsonText(event.target.value)}
+                  isFluid
+                />
+              </div>
+            ) : (
+              <div className="json-visualiser__tree-slot">
+                <JsonTreePane value={parsedValue} />
+              </div>
+            )}
+          </div>
         </section>
 
         <section className="json-visualiser__right" aria-label="JSON graph">

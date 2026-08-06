@@ -13,6 +13,7 @@ export function ToolLayout() {
 
   return (
     <AppShell
+      className="tool-shell"
       header={<SiteHeader />}
       sidebar={{
         items: menuItems,

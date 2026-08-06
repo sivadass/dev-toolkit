@@ -280,7 +280,7 @@
   margin: 0 0.4em;
 }
 
-/* Tool pages: stretch Outlet through AppShell main (flex column, min-height 100vh). */
+/* Tool pages: stretch Outlet through AppShell main (flex column). */
 .tool-shell-container {
   flex: 1;
   display: flex;
@@ -289,12 +289,38 @@
   box-sizing: border-box;
 }
 
+/*
+ * Viewport lock only for the JSON visualiser: pane content scrolls internally.
+ * Other tools under ToolLayout keep normal page scroll.
+ */
+.tool-shell:has(.json-visualiser) {
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow: hidden;
+}
+
+.tool-shell:has(.json-visualiser) .tool-shell-content {
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.tool-shell:has(.json-visualiser) .tool-shell-container {
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
 .json-visualiser {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
   flex: 1;
   min-height: 0;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
 }
 
 .json-visualiser > header {
@@ -304,9 +330,11 @@
 .json-visualiser__workspace {
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-rows: minmax(0, 1fr);
   gap: var(--space-4);
   flex: 1;
   min-height: 0;
+  overflow: hidden;
 }
 
 @media (min-width: 900px) {
@@ -319,18 +347,53 @@
 .json-visualiser__right {
   display: flex;
   flex-direction: column;
-  min-height: 20rem;
+  min-height: 0;
+  height: 100%;
   border: 1px solid var(--gray-200, #e5e7eb);
   border-radius: var(--radius-medium, 6px);
   background: var(--white, #fff);
   overflow: hidden;
 }
 
-@media (min-width: 900px) {
+/*
+ * Mobile: stacked panes need page scroll — unlock the viewport chain so the
+ * graph pane below the fold can be reached.
+ */
+@media (max-width: 899px) {
+  .tool-shell:has(.json-visualiser) {
+    height: auto;
+    max-height: none;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .tool-shell:has(.json-visualiser) .tool-shell-content {
+    overflow: visible !important;
+  }
+
+  .tool-shell:has(.json-visualiser) .tool-shell-container {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .json-visualiser {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .json-visualiser__workspace {
+    flex: none;
+    overflow: visible;
+    grid-template-rows: none;
+  }
+
   .json-visualiser__left,
   .json-visualiser__right {
-    min-height: 0;
-    height: 100%;
+    height: 20rem;
+    min-height: 20rem;
   }
 }
 
@@ -343,13 +406,42 @@
   border-bottom: 1px solid var(--gray-200, #e5e7eb);
 }
 
+.json-visualiser__toolbar fieldset {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 10rem;
+}
+
+/* Keep the SegmentedControl legend for assistive tech; hide it in the compact toolbar. */
+.json-visualiser__toolbar fieldset > legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .json-visualiser__toolbar .json-visualiser__status {
   margin-left: auto;
   min-width: 0;
   max-width: 50%;
 }
 
+.json-visualiser__pane-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
 .json-visualiser__editor,
+.json-visualiser__tree-slot,
 .json-visualiser__tree {
   flex: 1;
   min-height: 0;
@@ -357,6 +449,19 @@
   padding: var(--space-3);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.875rem;
+  background: var(--white, #fff);
+}
+
+.json-visualiser__tree-slot {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.json-visualiser__tree-slot .json-visualiser__tree {
+  flex: 1;
+  min-height: 0;
 }
 
 .json-visualiser__editor {
@@ -381,6 +486,11 @@
   resize: none;
   font: inherit;
   background: transparent;
+}
+
+/* Override react-json-view-lite default gray container (#eee). */
+.json-visualiser__tree > div {
+  background: transparent !important;
 }
 
 .json-visualiser__graph {

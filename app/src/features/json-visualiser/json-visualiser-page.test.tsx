@@ -42,7 +42,7 @@ describe("JsonVisualiserPage", () => {
     const user = userEvent.setup();
 
     render(<JsonVisualiserPage />);
-    await user.click(screen.getByRole("button", { name: /tree/i }));
+    await user.click(screen.getByRole("radio", { name: /tree/i }));
 
     expect(screen.getByTestId("json-tree-pane")).toBeInTheDocument();
   });
