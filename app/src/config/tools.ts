@@ -43,6 +43,14 @@ export const TOOLS: ToolDefinition[] = [
     status: "ready",
   },
   {
+    id: "json-visualiser",
+    title: "JSON visualiser",
+    description: "Explore JSON as tree and graph",
+    icon: "account_tree",
+    path: "/tools/json-visualiser",
+    status: "ready",
+  },
+  {
     id: "text-comparer",
     title: "Text comparer",
     description: "Side-by-side text diff",
