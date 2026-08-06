@@ -27,6 +27,14 @@ export const TOOLS: ToolDefinition[] = [
     status: "ready",
   },
   {
+    id: "qr-decoder",
+    title: "QR Code Reader",
+    description: "Extract text from QR images",
+    icon: "qr_code_scanner",
+    path: "/tools/qr-decoder",
+    status: "ready",
+  },
+  {
     id: "json-comparer",
     title: "JSON comparer",
     description: "Diff two JSON payloads",

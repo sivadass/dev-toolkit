@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { ImageCompressorPage } from "./features/image-compressor/image-compressor-page";
 import { JsonComparerPage } from "./features/json-comparer/json-comparer-page";
 import { QrCodeGeneratorPage } from "./features/qr-code-generator/qr-code-generator-page";
+import { QrDecoderPage } from "./features/qr-decoder/qr-decoder-page";
 import { HomeLayout } from "./layouts/home-layout";
 import { ToolLayout } from "./layouts/tool-layout";
 import { ComingSoonPage } from "./pages/coming-soon-page";
@@ -17,6 +18,7 @@ export function App() {
       <Route path="/tools" element={<ToolLayout />}>
         <Route path="image-compressor" element={<ImageCompressorPage />} />
         <Route path="qr-code-generator" element={<QrCodeGeneratorPage />} />
+        <Route path="qr-decoder" element={<QrDecoderPage />} />
         <Route path="json-comparer" element={<JsonComparerPage />} />
         <Route path=":toolId" element={<ComingSoonPage />} />
       </Route>
