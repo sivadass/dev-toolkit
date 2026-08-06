@@ -23,8 +23,9 @@ export function ToolLayout() {
       }}
       sidebarWidth="240px"
       mobileSidebarDrawer={false}
+      contentClassName="tool-shell-content"
     >
-      <Container padding="4">
+      <Container padding="4" width="full" className="tool-shell-container">
         <Outlet />
       </Container>
     </AppShell>

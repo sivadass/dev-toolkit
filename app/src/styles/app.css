@@ -279,3 +279,233 @@
 .json-diff-item__arrow {
   margin: 0 0.4em;
 }
+
+/* Tool pages: stretch Outlet through AppShell main (flex column, min-height 100vh). */
+.tool-shell-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.json-visualiser {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  flex: 1;
+  min-height: 0;
+}
+
+.json-visualiser > header {
+  flex-shrink: 0;
+}
+
+.json-visualiser__workspace {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  flex: 1;
+  min-height: 0;
+}
+
+@media (min-width: 900px) {
+  .json-visualiser__workspace {
+    grid-template-columns: minmax(16rem, 2fr) minmax(20rem, 3fr);
+  }
+}
+
+.json-visualiser__left,
+.json-visualiser__right {
+  display: flex;
+  flex-direction: column;
+  min-height: 20rem;
+  border: 1px solid var(--gray-200, #e5e7eb);
+  border-radius: var(--radius-medium, 6px);
+  background: var(--white, #fff);
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .json-visualiser__left,
+  .json-visualiser__right {
+    min-height: 0;
+    height: 100%;
+  }
+}
+
+.json-visualiser__toolbar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--gray-200, #e5e7eb);
+}
+
+.json-visualiser__toolbar .json-visualiser__status {
+  margin-left: auto;
+  min-width: 0;
+  max-width: 50%;
+}
+
+.json-visualiser__editor,
+.json-visualiser__tree {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: var(--space-3);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+}
+
+.json-visualiser__editor {
+  display: flex;
+  flex-direction: column;
+}
+
+/* FormControls.TextArea root: stretch label + textarea to fill the pane. */
+.json-visualiser__editor > div {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.json-visualiser__editor textarea {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border: none;
+  resize: none;
+  font: inherit;
+  background: transparent;
+}
+
+.json-visualiser__graph {
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+}
+
+.json-graph-node {
+  position: relative;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--gray-300, #d1d5db);
+  border-radius: 6px;
+  background: #fff;
+  font-size: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 6%);
+}
+
+.json-graph-node__handle {
+  width: 8px;
+  height: 8px;
+  background: var(--gray-400, #9ca3af);
+  border: 1px solid var(--white, #fff);
+  pointer-events: none;
+}
+
+.json-graph-node__handle--source {
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+}
+
+.json-graph-node__handle--target {
+  top: 50%;
+  left: -5px;
+  transform: translateY(-50%);
+}
+
+.json-graph-node__label {
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+  color: var(--primary-brand, #0c0a5d);
+}
+
+.json-graph-node__rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.json-graph-node__row {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  min-width: 0;
+  padding-right: 2px;
+}
+
+.json-graph-node__row-main {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.json-graph-node__key {
+  color: var(--gray-600, #4b5563);
+}
+
+.json-graph-node__type {
+  flex-shrink: 0;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  color: var(--gray-500, #6b7280);
+}
+
+.json-graph-node__type[data-type="STR"] {
+  color: #15803d;
+}
+
+.json-graph-node__type[data-type="INT"],
+.json-graph-node__type[data-type="FLOAT"] {
+  color: #1d4ed8;
+}
+
+.json-graph-node__type[data-type="BOOL"] {
+  color: #a16207;
+}
+
+.json-graph-node__type[data-type="NULL"] {
+  color: #6b7280;
+}
+
+.json-graph-node__type[data-type="OBJ"],
+.json-graph-node__type[data-type="ARR"] {
+  color: var(--primary-brand, #0c0a5d);
+}
+
+.json-visualiser__status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.875rem;
+  color: var(--text-muted, #4b5563);
+  overflow: hidden;
+}
+
+.json-visualiser__status > :last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.json-visualiser__status--valid {
+  color: #15803d;
+}
+
+.json-visualiser__status--invalid {
+  color: #b91c1c;
+}
