@@ -6,6 +6,7 @@ import {
   Typography,
 } from "cleanplate";
 import { ToolPageHeader } from "../../components/tool-page-header";
+import { ToolSurface } from "../../components/tool-surface";
 import { formatBytes } from "../../lib/format-bytes";
 import { ACCEPTED_INPUT_TYPES, type OutputMimeType } from "./compress-image";
 import { useImageCompressor } from "./use-image-compressor";
@@ -126,7 +127,7 @@ export function ImageCompressorPage() {
 
       <Container display="block" margin="t-6" padding="0">
         <div className="preview-split">
-          <Container showBorder padding="4" margin="0">
+          <ToolSurface>
             <Typography variant="h4" margin="0">
               Original
             </Typography>
@@ -142,8 +143,8 @@ export function ImageCompressorPage() {
                 Select an image to preview
               </Typography>
             )}
-          </Container>
-          <Container showBorder padding="4" margin="0">
+          </ToolSurface>
+          <ToolSurface>
             <Typography variant="h4" margin="0">
               Compressed
             </Typography>
@@ -172,7 +173,7 @@ export function ImageCompressorPage() {
                 Compress to preview
               </Typography>
             )}
-          </Container>
+          </ToolSurface>
         </div>
       </Container>
     </>

@@ -6,6 +6,7 @@ import {
   Typography,
 } from "cleanplate";
 import { ToolPageHeader } from "../../components/tool-page-header";
+import { ToolSurface } from "../../components/tool-surface";
 import type { DiffType, JsonDiffEntry } from "./compare-json";
 import { useJsonComparer } from "./use-json-comparer";
 
@@ -127,7 +128,7 @@ export function JsonComparerPage() {
         padding="0"
         aria-live="polite"
       >
-        <Container showBorder padding="4" margin="0" className="json-result">
+        <ToolSurface className="json-result">
           <Typography variant="h4" margin="0">
             Result
           </Typography>
@@ -165,7 +166,7 @@ export function JsonComparerPage() {
               </div>
             </>
           )}
-        </Container>
+        </ToolSurface>
       </Container>
     </>
   );

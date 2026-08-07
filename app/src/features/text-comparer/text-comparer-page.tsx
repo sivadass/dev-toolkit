@@ -6,6 +6,7 @@ import {
   Typography,
 } from "cleanplate";
 import { ToolPageHeader } from "../../components/tool-page-header";
+import { ToolSurface } from "../../components/tool-surface";
 import { TextDiffView } from "./text-diff-view";
 import { useTextComparer } from "./use-text-comparer";
 
@@ -76,7 +77,7 @@ export function TextComparerPage() {
       </div>
 
       <Container display="block" margin="t-6" padding="0" aria-live="polite">
-        <Container showBorder padding="4" margin="0" className="text-result">
+        <ToolSurface className="text-result">
           <Typography variant="h4" margin="0">
             Diff
           </Typography>
@@ -106,7 +107,7 @@ export function TextComparerPage() {
               </div>
             </>
           )}
-        </Container>
+        </ToolSurface>
       </Container>
     </>
   );
