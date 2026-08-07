@@ -45,23 +45,24 @@
   background: var(--canvas-wash);
 }
 
-.tool-shell aside[aria-label="Main navigation"] {
-  background: var(--surface-frosted);
+.tool-shell[class*="cp-app-shell"] [class*="body-"] aside[aria-label="Main navigation"][class*="sidebar"] {
+  background: var(--surface-frosted) !important;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-inline-end: none;
+  border-right: none !important;
+  border-inline-end: none !important;
   box-shadow: none;
 }
 
-.tool-shell aside[aria-label="Main navigation"] [class*="active"] {
+.tool-shell[class*="cp-app-shell"] [class*="body-"] aside[aria-label="Main navigation"][class*="sidebar"] [class*="active"] {
   background: color-mix(in srgb, var(--primary-brand) 12%, transparent) !important;
   color: var(--primary-brand) !important;
   border-radius: var(--radius-large, 12px);
   font-weight: 600;
 }
 
-.tool-shell aside[aria-label="Main navigation"] [class*="active"]:focus-visible,
-.tool-shell aside[aria-label="Main navigation"] button:focus-visible {
+.tool-shell[class*="cp-app-shell"] [class*="body-"] aside[aria-label="Main navigation"][class*="sidebar"] [class*="active"]:focus-visible,
+.tool-shell[class*="cp-app-shell"] [class*="body-"] aside[aria-label="Main navigation"][class*="sidebar"] button:focus-visible {
   outline: none;
   box-shadow:
     0 0 0 2px var(--white, #fff),
@@ -69,10 +70,16 @@
 }
 
 .tool-shell .site-header,
-.tool-shell .site-header > * {
+.tool-shell [class*="cp-header"] {
   background: transparent !important;
   box-shadow: none;
-  border-bottom: none;
+  border-bottom: none !important;
+}
+
+.tool-shell .site-header > *,
+.tool-shell [class*="cp-header"] > * {
+  background: transparent !important;
+  box-shadow: none;
 }
 
 .home-shell__main {
