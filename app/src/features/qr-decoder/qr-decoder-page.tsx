@@ -28,7 +28,7 @@ export function QrDecoderPage() {
       <ToolPageHeader
         kicker="Client-side · Private"
         title="QR Code Reader"
-        subtitle="Decode a QR image locally — files never leave your device."
+        subtitle="Decode a QR image to text."
         primaryCta={
           <Button
             variant="solid"

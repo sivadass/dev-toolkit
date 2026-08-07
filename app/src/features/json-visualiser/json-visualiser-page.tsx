@@ -27,7 +27,7 @@ export function JsonVisualiserPage() {
       <ToolPageHeader
         kicker="Client-side · Private"
         title="JSON visualiser"
-        subtitle="Inspect JSON as an expandable tree or interactive graph - all in your browser."
+        subtitle="Inspect JSON as an expandable tree or interactive graph."
       />
 
       <div className="json-visualiser__workspace">

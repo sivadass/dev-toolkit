@@ -32,7 +32,7 @@ export function TextComparerPage() {
       <ToolPageHeader
         kicker="Client-side · Private"
         title="Text comparer"
-        subtitle="Compare two text blocks — stays on-device."
+        subtitle="Compare two text blocks side by side."
         primaryCta={
           <Button
             variant="solid"

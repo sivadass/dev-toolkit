@@ -47,7 +47,7 @@ export function ImageCompressorPage() {
       <ToolPageHeader
         kicker="Client-side · Private"
         title="Image compressor"
-        subtitle="Compress PNG, JPG, WebP & GIF locally — files never leave your device."
+        subtitle="Compress PNG, JPG, WebP & GIF — animated GIFs become a single frame."
       />
 
       {error ? <Alert message={error} variant="error" margin="t-4" /> : null}

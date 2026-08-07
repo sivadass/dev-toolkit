@@ -76,7 +76,7 @@ export function PdfCompressorPage() {
       <ToolPageHeader
         kicker="Client-side · Private"
         title="PDF compressor"
-        subtitle="Compress PDFs locally — files never leave your device."
+        subtitle="Compress PDFs in your browser — optimize text or re-rasterize scans."
       />
 
       {error ? <Alert message={error} variant="error" margin="t-4" /> : null}

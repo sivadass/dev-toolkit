@@ -67,7 +67,7 @@ export function JsonComparerPage() {
       <ToolPageHeader
         kicker="Client-side · Private"
         title="JSON comparer"
-        subtitle="Paste left & right — diffs stay on-device."
+        subtitle="Paste left & right JSON and see the diff."
         primaryCta={
           <Button
             variant="solid"

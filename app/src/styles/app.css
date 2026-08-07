@@ -793,8 +793,13 @@
 @media (min-width: 768px) {
   .tool-primary-step {
     grid-template-columns: 1fr auto;
-    align-items: end;
+    align-items: start;
   }
+}
+
+.tool-primary-step__input {
+  display: grid;
+  gap: var(--space-2);
 }
 
 .tool-primary-step__action {
@@ -804,7 +809,7 @@
 
 @media (min-width: 768px) {
   .tool-primary-step__action {
-    padding-bottom: 0.5rem; /* optically align with file control */
+    padding-top: 1.75rem; /* optically align with file control label row */
   }
 }
 

@@ -45,7 +45,7 @@ export function Base64Page() {
       <ToolPageHeader
         kicker="Client-side · Private"
         title="Base64"
-        subtitle="Encode and decode text — stays on-device."
+        subtitle="Encode and decode text, with optional URL-safe alphabet."
         primaryCta={
           <Button
             variant="solid"

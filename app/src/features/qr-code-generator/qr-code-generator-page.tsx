@@ -63,7 +63,7 @@ export function QrCodeGeneratorPage() {
       <ToolPageHeader
         kicker="Client-side · Private"
         title="QR Code generator"
-        subtitle="Generate a QR code in your browser — content never leaves your device."
+        subtitle="Generate a QR code from text or a URL."
         primaryCta={
           <Button
             variant="solid"
