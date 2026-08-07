@@ -740,3 +740,34 @@
 .text-diff-view__empty {
   opacity: 0;
 }
+
+.pdf-options-row {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .pdf-options-row {
+    grid-template-columns: 1.4fr 1fr;
+  }
+}
+
+.pdf-progress {
+  font-variant-numeric: tabular-nums;
+}
+
+.pdf-preview-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.pdf-preview-thumbs img {
+  display: block;
+  max-width: 100%;
+  max-height: 240px;
+  width: auto;
+  height: auto;
+  margin-top: 0;
+  border: 1px solid var(--color-border, #e5e7eb);
+}

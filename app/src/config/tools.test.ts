@@ -2,9 +2,10 @@ import { describe, expect, it } from "vitest";
 import { TOOLS, getToolById, getToolMenuItems } from "./tools";
 
 describe("tools registry", () => {
-  it("lists seven tools with image compressor, QR tools, JSON tools, and text comparer ready", () => {
-    expect(TOOLS).toHaveLength(7);
+  it("lists eight tools with image compressor, PDF compressor, QR tools, JSON tools, and text comparer ready", () => {
+    expect(TOOLS).toHaveLength(8);
     expect(getToolById("image-compressor")?.status).toBe("ready");
+    expect(getToolById("pdf-compressor")?.status).toBe("ready");
     expect(getToolById("qr-code-generator")?.status).toBe("ready");
     expect(getToolById("qr-decoder")?.status).toBe("ready");
     expect(getToolById("json-comparer")?.status).toBe("ready");

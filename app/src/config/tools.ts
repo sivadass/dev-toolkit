@@ -19,6 +19,14 @@ export const TOOLS: ToolDefinition[] = [
     status: "ready",
   },
   {
+    id: "pdf-compressor",
+    title: "PDF compressor",
+    description: "Shrink PDFs locally in your browser",
+    icon: "picture_as_pdf",
+    path: "/tools/pdf-compressor",
+    status: "ready",
+  },
+  {
     id: "qr-code-generator",
     title: "QR Code generator",
     description: "Create downloadable QR codes",
