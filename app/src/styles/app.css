@@ -782,6 +782,36 @@
   margin-inline-start: auto;
 }
 
+.tool-primary-step {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  align-items: start;
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .tool-primary-step {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+}
+
+.tool-primary-step__action {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (min-width: 768px) {
+  .tool-primary-step__action {
+    padding-bottom: 0.5rem; /* optically align with file control */
+  }
+}
+
+.tool-hint {
+  color: var(--text-subtle);
+}
+
 .tool-surface {
   background: var(--surface-frosted);
   border: none;

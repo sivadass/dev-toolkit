@@ -48,7 +48,31 @@ export function ImageCompressorPage() {
         kicker="Client-side · Private"
         title="Image compressor"
         subtitle="Compress PNG, JPG, WebP & GIF locally — files never leave your device."
-        primaryCta={
+      />
+
+      {error ? <Alert message={error} variant="error" margin="t-4" /> : null}
+
+      <div className="tool-primary-step">
+        <div className="tool-primary-step__input">
+          <FormControls.File
+            label="Image file"
+            variant="card"
+            multiple={false}
+            accept={ACCEPTED_INPUT_TYPES.join(",")}
+            value={file ? [file] : []}
+            onChange={(files) => setFilesFromControl(files)}
+            dropZoneText="Drop an image here"
+            buttonLabel="Browse"
+            isFluid
+            margin="0"
+            dataTestId="image-file"
+          />
+          <Typography variant="small" margin="0" className="tool-hint">
+            PNG, JPEG, WebP, or GIF up to 10 MB. Animated GIFs become a single
+            frame. PNG output ignores the quality setting (browser behavior).
+          </Typography>
+        </div>
+        <div className="tool-primary-step__action">
           <Button
             variant="solid"
             isLoading={isCompressing}
@@ -57,28 +81,8 @@ export function ImageCompressorPage() {
           >
             Compress
           </Button>
-        }
-      />
-
-      {error ? <Alert message={error} variant="error" margin="t-4" /> : null}
-
-      <FormControls.File
-        label="Image file"
-        variant="card"
-        multiple={false}
-        accept={ACCEPTED_INPUT_TYPES.join(",")}
-        value={file ? [file] : []}
-        onChange={(files) => setFilesFromControl(files)}
-        dropZoneText="Drop an image here"
-        buttonLabel="Browse"
-        isFluid
-        margin={["t-4", "b-2"]}
-        dataTestId="image-file"
-      />
-      <Typography variant="small" margin="0">
-        PNG, JPEG, WebP, or GIF up to 10 MB. Animated GIFs become a single frame.
-        PNG output ignores the quality setting (browser behavior).
-      </Typography>
+        </div>
+      </div>
 
       <Container display="block" margin="t-4" padding="0">
         <div className="options-row">
