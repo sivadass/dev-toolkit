@@ -1,5 +1,6 @@
 :root {
   --primary-brand: #0c0a5d;
+  --home-accent: #f39660;
 }
 
 .brand-wordmark {
@@ -34,7 +35,10 @@
 
 .home-shell {
   min-height: 100vh;
-  background: var(--gray-50);
+  background:
+    radial-gradient(ellipse 80% 50% at 100% -10%, rgba(243, 150, 96, 0.12), transparent 55%),
+    radial-gradient(ellipse 70% 45% at -5% 100%, rgba(12, 10, 93, 0.08), transparent 50%),
+    linear-gradient(165deg, #f7f7fa 0%, #eef0f6 45%, #f8f4f0 100%);
 }
 
 .home-shell__main {
@@ -45,4 +49,27 @@
   width: 100%;
   max-width: 1120px;
   margin-inline: auto;
+}
+
+.home__kicker {
+  color: var(--home-accent);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem !important;
+}
+
+.home__headline {
+  font-family: "DM Serif Display", Georgia, serif !important;
+  color: var(--primary-brand);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  font-weight: 400 !important;
+}
+
+.home__lead {
+  color: var(--text-subtle);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  max-width: 36rem;
 }
