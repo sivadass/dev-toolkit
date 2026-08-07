@@ -56,7 +56,7 @@ export const TOOLS: ToolDefinition[] = [
     description: "Side-by-side text diff",
     icon: "compare_arrows",
     path: "/tools/text-comparer",
-    status: "coming-soon",
+    status: "ready",
   },
   {
     id: "base64",
