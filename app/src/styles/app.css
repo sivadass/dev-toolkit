@@ -746,3 +746,38 @@
   margin-top: 0;
   border: 1px solid var(--color-border, #e5e7eb);
 }
+
+.tool-page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.tool-page-header__kicker {
+  color: var(--home-accent);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem !important;
+}
+
+.tool-page-header__title {
+  font-family: "DM Serif Display", Georgia, serif !important;
+  color: var(--primary-brand);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  font-weight: 400 !important;
+}
+
+.tool-page-header__subtitle {
+  color: var(--text-subtle);
+  max-width: 40rem;
+  line-height: 1.5;
+}
+
+.tool-page-header__cta {
+  flex-shrink: 0;
+  margin-inline-start: auto;
+}
