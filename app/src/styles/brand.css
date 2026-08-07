@@ -1,6 +1,12 @@
 :root {
   --primary-brand: #0c0a5d;
   --home-accent: #f39660;
+  --surface-frosted: rgba(255, 255, 255, 0.72);
+  --surface-frosted-hover: rgba(255, 255, 255, 0.9);
+  --canvas-wash:
+    radial-gradient(ellipse 80% 50% at 100% -10%, rgba(243, 150, 96, 0.12), transparent 55%),
+    radial-gradient(ellipse 70% 45% at -5% 100%, rgba(12, 10, 93, 0.08), transparent 50%),
+    linear-gradient(165deg, #f7f7fa 0%, #eef0f6 45%, #f8f4f0 100%);
 }
 
 .brand-wordmark {
@@ -33,12 +39,40 @@
   visibility: hidden;
 }
 
-.home-shell {
+.home-shell,
+.tool-shell {
   min-height: 100vh;
-  background:
-    radial-gradient(ellipse 80% 50% at 100% -10%, rgba(243, 150, 96, 0.12), transparent 55%),
-    radial-gradient(ellipse 70% 45% at -5% 100%, rgba(12, 10, 93, 0.08), transparent 50%),
-    linear-gradient(165deg, #f7f7fa 0%, #eef0f6 45%, #f8f4f0 100%);
+  background: var(--canvas-wash);
+}
+
+.tool-shell aside[aria-label="Main navigation"] {
+  background: var(--surface-frosted);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-inline-end: none;
+  box-shadow: none;
+}
+
+.tool-shell aside[aria-label="Main navigation"] [class*="active"] {
+  background: color-mix(in srgb, var(--primary-brand) 12%, transparent) !important;
+  color: var(--primary-brand) !important;
+  border-radius: var(--radius-large, 12px);
+  font-weight: 600;
+}
+
+.tool-shell aside[aria-label="Main navigation"] [class*="active"]:focus-visible,
+.tool-shell aside[aria-label="Main navigation"] button:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--white, #fff),
+    0 0 0 4px var(--primary-brand);
+}
+
+.tool-shell .site-header,
+.tool-shell .site-header > * {
+  background: transparent !important;
+  box-shadow: none;
+  border-bottom: none;
 }
 
 .home-shell__main {
