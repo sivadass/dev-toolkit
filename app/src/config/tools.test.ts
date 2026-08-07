@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { TOOLS, getToolById, getToolMenuItems } from "./tools";
 
 describe("tools registry", () => {
-  it("lists eight tools with image compressor, PDF compressor, QR tools, JSON tools, and text comparer ready", () => {
+  it("lists eight tools with image compressor, PDF compressor, QR tools, JSON tools, text comparer, and base64 ready", () => {
     expect(TOOLS).toHaveLength(8);
     expect(getToolById("image-compressor")?.status).toBe("ready");
     expect(getToolById("pdf-compressor")?.status).toBe("ready");
@@ -11,6 +11,7 @@ describe("tools registry", () => {
     expect(getToolById("json-comparer")?.status).toBe("ready");
     expect(getToolById("json-visualiser")?.status).toBe("ready");
     expect(getToolById("text-comparer")?.status).toBe("ready");
+    expect(getToolById("base64")?.status).toBe("ready");
   });
 
   it("returns menu items with path values", () => {

@@ -1,5 +1,6 @@
 import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
+import { Base64Page } from "./features/base64/base64-page";
 import { ImageCompressorPage } from "./features/image-compressor/image-compressor-page";
 import { JsonComparerPage } from "./features/json-comparer/json-comparer-page";
 import { JsonVisualiserPage } from "./features/json-visualiser/json-visualiser-page";
@@ -38,6 +39,7 @@ export function App() {
         <Route path="json-comparer" element={<JsonComparerPage />} />
         <Route path="json-visualiser" element={<JsonVisualiserPage />} />
         <Route path="text-comparer" element={<TextComparerPage />} />
+        <Route path="base64" element={<Base64Page />} />
         <Route path=":toolId" element={<ComingSoonPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />

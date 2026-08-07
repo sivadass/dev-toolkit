@@ -72,7 +72,7 @@ export const TOOLS: ToolDefinition[] = [
     description: "Encode and decode strings",
     icon: "code",
     path: "/tools/base64",
-    status: "coming-soon",
+    status: "ready",
   },
 ];
 
