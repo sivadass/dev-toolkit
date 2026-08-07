@@ -3,9 +3,9 @@ import {
   Button,
   FormControls,
   MenuList,
-  PageHeader,
   Typography,
 } from "cleanplate";
+import { ToolPageHeader } from "../../components/tool-page-header";
 import { useBase64, type Base64Mode } from "./use-base64";
 
 const TAB_ITEMS = [
@@ -42,7 +42,8 @@ export function Base64Page() {
 
   return (
     <>
-      <PageHeader
+      <ToolPageHeader
+        kicker="Client-side · Private"
         title="Base64"
         subtitle="Encode and decode text — stays on-device."
         primaryCta={

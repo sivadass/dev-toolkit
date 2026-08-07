@@ -3,9 +3,9 @@ import {
   Button,
   Container,
   FormControls,
-  PageHeader,
   Typography,
 } from "cleanplate";
+import { ToolPageHeader } from "../../components/tool-page-header";
 import { ACCEPTED_INPUT_TYPES } from "./decode-qr-code";
 import { useQrDecoder } from "./use-qr-decoder";
 
@@ -24,7 +24,8 @@ export function QrDecoderPage() {
 
   return (
     <>
-      <PageHeader
+      <ToolPageHeader
+        kicker="Client-side · Private"
         title="QR Code Reader"
         subtitle="Decode a QR image locally — files never leave your device."
         primaryCta={

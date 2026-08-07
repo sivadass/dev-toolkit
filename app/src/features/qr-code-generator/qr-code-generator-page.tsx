@@ -3,9 +3,9 @@ import {
   Button,
   Container,
   FormControls,
-  PageHeader,
   Typography,
 } from "cleanplate";
+import { ToolPageHeader } from "../../components/tool-page-header";
 import type { ErrorCorrectionLevel } from "./generate-qr-code";
 import { MAX_CONTENT_LENGTH, MAX_SIZE, MIN_SIZE } from "./generate-qr-code";
 import { useQrCodeGenerator } from "./use-qr-code-generator";
@@ -59,7 +59,8 @@ export function QrCodeGeneratorPage() {
 
   return (
     <>
-      <PageHeader
+      <ToolPageHeader
+        kicker="Client-side · Private"
         title="QR Code generator"
         subtitle="Generate a QR code in your browser — content never leaves your device."
         primaryCta={

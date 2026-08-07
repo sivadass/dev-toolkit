@@ -3,9 +3,9 @@ import {
   Button,
   Container,
   FormControls,
-  PageHeader,
   Typography,
 } from "cleanplate";
+import { ToolPageHeader } from "../../components/tool-page-header";
 import { TextDiffView } from "./text-diff-view";
 import { useTextComparer } from "./use-text-comparer";
 
@@ -28,7 +28,8 @@ export function TextComparerPage() {
 
   return (
     <>
-      <PageHeader
+      <ToolPageHeader
+        kicker="Client-side · Private"
         title="Text comparer"
         subtitle="Compare two text blocks — stays on-device."
         primaryCta={

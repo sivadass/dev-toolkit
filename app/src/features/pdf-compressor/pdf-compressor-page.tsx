@@ -3,9 +3,9 @@ import {
   Button,
   Container,
   FormControls,
-  PageHeader,
   Typography,
 } from "cleanplate";
+import { ToolPageHeader } from "../../components/tool-page-header";
 import { formatBytes } from "../../lib/format-bytes";
 import {
   QUALITY_PRESETS,
@@ -72,7 +72,8 @@ export function PdfCompressorPage() {
 
   return (
     <>
-      <PageHeader
+      <ToolPageHeader
+        kicker="Client-side · Private"
         title="PDF compressor"
         subtitle="Compress PDFs locally — files never leave your device."
         primaryCta={

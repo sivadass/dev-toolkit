@@ -3,9 +3,9 @@ import {
   Button,
   Container,
   FormControls,
-  PageHeader,
   Typography,
 } from "cleanplate";
+import { ToolPageHeader } from "../../components/tool-page-header";
 import type { DiffType, JsonDiffEntry } from "./compare-json";
 import { useJsonComparer } from "./use-json-comparer";
 
@@ -63,7 +63,8 @@ export function JsonComparerPage() {
 
   return (
     <>
-      <PageHeader
+      <ToolPageHeader
+        kicker="Client-side · Private"
         title="JSON comparer"
         subtitle="Paste left & right — diffs stay on-device."
         primaryCta={

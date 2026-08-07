@@ -3,9 +3,9 @@ import {
   Button,
   Container,
   FormControls,
-  PageHeader,
   Typography,
 } from "cleanplate";
+import { ToolPageHeader } from "../../components/tool-page-header";
 import { formatBytes } from "../../lib/format-bytes";
 import { ACCEPTED_INPUT_TYPES, type OutputMimeType } from "./compress-image";
 import { useImageCompressor } from "./use-image-compressor";
@@ -43,7 +43,8 @@ export function ImageCompressorPage() {
 
   return (
     <>
-      <PageHeader
+      <ToolPageHeader
+        kicker="Client-side · Private"
         title="Image compressor"
         subtitle="Compress PNG, JPG, WebP & GIF locally — files never leave your device."
         primaryCta={
