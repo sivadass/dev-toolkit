@@ -77,8 +77,45 @@ export function PdfCompressorPage() {
         kicker="Client-side · Private"
         title="PDF compressor"
         subtitle="Compress PDFs locally — files never leave your device."
-        primaryCta={
-          isCompressing ? (
+      />
+
+      {error ? <Alert message={error} variant="error" margin="t-4" /> : null}
+      {warning ? (
+        <Alert message={warning} variant="warning" margin="t-4" />
+      ) : null}
+
+      <div className="tool-primary-step">
+        <div className="tool-primary-step__input">
+          <FormControls.File
+            label="PDF file"
+            variant="card"
+            multiple={false}
+            accept="application/pdf,.pdf"
+            value={file ? [file] : []}
+            onChange={(files) => setFilesFromControl(files)}
+            dropZoneText="Drop a PDF here"
+            buttonLabel="Browse"
+            isFluid
+            margin="0"
+            dataTestId="pdf-file"
+          />
+          <Typography variant="small" margin="0" className="tool-hint">
+            PDFs up to 200 MB. Large files may be slow in-browser. Nothing is
+            uploaded — processing stays on your device.
+          </Typography>
+          {file ? (
+            <Typography variant="small" margin="t-2">
+              {file.name} · {formatBytes(file.size)}
+              {pageCount != null
+                ? ` · ${pageCount} page${pageCount === 1 ? "" : "s"}`
+                : ""}
+              {" · "}
+              {classificationLabel(classification, isInspecting)}
+            </Typography>
+          ) : null}
+        </div>
+        <div className="tool-primary-step__action">
+          {isCompressing ? (
             <Button variant="outline" onClick={cancel}>
               Cancel
             </Button>
@@ -90,41 +127,9 @@ export function PdfCompressorPage() {
             >
               Compress
             </Button>
-          )
-        }
-      />
-
-      {error ? <Alert message={error} variant="error" margin="t-4" /> : null}
-      {warning ? (
-        <Alert message={warning} variant="warning" margin="t-4" />
-      ) : null}
-
-      <FormControls.File
-        label="PDF file"
-        variant="card"
-        multiple={false}
-        accept="application/pdf,.pdf"
-        value={file ? [file] : []}
-        onChange={(files) => setFilesFromControl(files)}
-        dropZoneText="Drop a PDF here"
-        buttonLabel="Browse"
-        isFluid
-        margin={["t-4", "b-2"]}
-        dataTestId="pdf-file"
-      />
-      <Typography variant="small" margin="0">
-        PDFs up to 200 MB. Large files may be slow in-browser. Nothing is
-        uploaded — processing stays on your device.
-      </Typography>
-
-      {file ? (
-        <Typography variant="small" margin="t-2">
-          {file.name} · {formatBytes(file.size)}
-          {pageCount != null ? ` · ${pageCount} page${pageCount === 1 ? "" : "s"}` : ""}
-          {" · "}
-          {classificationLabel(classification, isInspecting)}
-        </Typography>
-      ) : null}
+          )}
+        </div>
+      </div>
 
       <Container display="block" margin="t-4" padding="0">
         <div className="options-row pdf-options-row">
