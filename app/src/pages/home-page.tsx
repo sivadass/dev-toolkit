@@ -1,4 +1,4 @@
-import { Badge, Icon, Typography } from "cleanplate";
+import { Icon, Typography } from "cleanplate";
 import { Link } from "react-router-dom";
 import { TOOLS } from "../config/tools";
 
@@ -9,12 +9,16 @@ export function HomePage() {
         <Typography variant="small" margin="0" className="home__kicker">
           Client-side · Private
         </Typography>
-        <Typography variant="h1" margin="t-3" id="home-heading">
+        <Typography
+          variant="h1"
+          margin="t-3"
+          id="home-heading"
+          className="home__headline"
+        >
           Tools that stay in your browser
         </Typography>
         <Typography variant="p" margin="t-3" className="home__lead">
-          Compress, compare, encode — free utilities that never upload your
-          data.
+          Compress, compare, encode — never uploaded.
         </Typography>
       </section>
 
@@ -26,31 +30,21 @@ export function HomePage() {
               <Link
                 key={tool.id}
                 to={tool.path}
-                className={
-                  isReady
-                    ? "tool-card-link"
-                    : "tool-card-link tool-card-link--soon"
-                }
+                className={isReady ? "tool-tile" : "tool-tile tool-tile--soon"}
               >
-                <div className="tool-card-link__top">
-                  <span className="tool-card-link__icon" aria-hidden>
-                    <Icon name={tool.icon as never} size="large" />
-                  </span>
-                  <Badge
-                    label={isReady ? "Ready" : "Soon"}
-                    variant={isReady ? "success" : "default"}
-                  />
-                </div>
+                <span className="tool-tile__icon" aria-hidden>
+                  <Icon name={tool.icon as never} size="large" />
+                </span>
                 <Typography variant="h4" margin="t-4">
                   {tool.title}
                 </Typography>
-                <Typography variant="small" margin="t-2" className="tool-card-link__desc">
-                  {tool.description}
+                <Typography
+                  variant="small"
+                  margin="t-2"
+                  className="tool-tile__desc"
+                >
+                  {isReady ? tool.description : "Soon"}
                 </Typography>
-                <span className="tool-card-link__cta">
-                  {isReady ? "Open tool" : "Coming soon"}
-                  <Icon name="arrow_forward" size="small" aria-hidden />
-                </span>
               </Link>
             );
           })}
