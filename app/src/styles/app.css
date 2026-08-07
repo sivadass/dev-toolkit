@@ -23,6 +23,7 @@
 .tool-tile {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   height: 100%;
   text-decoration: none;
   color: inherit;
@@ -54,16 +55,36 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  box-sizing: border-box;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
   border-radius: var(--radius-large);
   background: color-mix(in srgb, var(--primary-brand) 8%, transparent);
   color: var(--primary-brand);
+  line-height: 1;
+}
+
+.tool-tile__icon > * {
+  font-size: 24px !important;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool-tile__title {
+  color: var(--primary-brand) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
 }
 
 .tool-tile__desc {
-  color: var(--text-muted);
-  flex: 1;
+  color: var(--text-subtle);
+  line-height: 1.45;
+  max-width: 22rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

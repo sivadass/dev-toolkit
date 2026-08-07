@@ -33,14 +33,18 @@ export function HomePage() {
                 className={isReady ? "tool-tile" : "tool-tile tool-tile--soon"}
               >
                 <span className="tool-tile__icon" aria-hidden>
-                  <Icon name={tool.icon as never} size="large" />
+                  <Icon name={tool.icon as never} size="medium" />
                 </span>
-                <Typography variant="h4" margin="t-4">
+                <Typography
+                  variant="h4"
+                  margin="t-3"
+                  className="tool-tile__title"
+                >
                   {tool.title}
                 </Typography>
                 <Typography
                   variant="small"
-                  margin="t-2"
+                  margin="t-1"
                   className="tool-tile__desc"
                 >
                   {isReady ? tool.description : "Soon"}
