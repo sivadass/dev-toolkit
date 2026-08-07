@@ -97,7 +97,7 @@ export function Base64Page() {
         isFluid
         margin="t-4"
         dataTestId="base64-output"
-        readOnly
+        isDisabled
       />
 
       <div className="text-pane-actions text-pane-actions--spaced">
