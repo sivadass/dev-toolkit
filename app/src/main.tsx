@@ -6,9 +6,11 @@ import "./styles/brand.css";
 import "./styles/app.css";
 import { App } from "./app";
 
+const basename = import.meta.env.BASE_URL.replace(/\/$/, "") || undefined;
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <App />
     </BrowserRouter>
   </StrictMode>
