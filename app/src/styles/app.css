@@ -781,3 +781,22 @@
   flex-shrink: 0;
   margin-inline-start: auto;
 }
+
+.tool-surface {
+  background: var(--surface-frosted);
+  border: none;
+  box-shadow: none;
+  border-radius: var(--radius-x-large, 16px);
+  padding: var(--space-4);
+  transition: background 160ms ease;
+}
+
+.tool-surface:hover {
+  background: var(--surface-frosted-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-surface {
+    transition: none;
+  }
+}
