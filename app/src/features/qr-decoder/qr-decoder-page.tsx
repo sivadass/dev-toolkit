@@ -3,9 +3,10 @@ import {
   Button,
   Container,
   FormControls,
-  PageHeader,
   Typography,
 } from "cleanplate";
+import { ToolPageHeader } from "../../components/tool-page-header";
+import { ToolSurface } from "../../components/tool-surface";
 import { ACCEPTED_INPUT_TYPES } from "./decode-qr-code";
 import { useQrDecoder } from "./use-qr-decoder";
 
@@ -24,9 +25,10 @@ export function QrDecoderPage() {
 
   return (
     <>
-      <PageHeader
+      <ToolPageHeader
+        kicker="Client-side · Private"
         title="QR Code Reader"
-        subtitle="Decode a QR image locally — files never leave your device."
+        subtitle="Decode a QR image to text."
         primaryCta={
           <Button
             variant="solid"
@@ -59,19 +61,21 @@ export function QrDecoderPage() {
       </Typography>
 
       {file && previewUrl ? (
-        <Container showBorder padding="4" margin="t-4" className="qr-preview">
-          <Typography variant="h4" margin="0">
-            Preview
-          </Typography>
-          <Typography variant="small" margin="t-2">
-            {file.name}
-          </Typography>
-          <img src={previewUrl} alt="Uploaded QR preview" />
+        <Container display="block" margin="t-4" padding="0">
+          <ToolSurface className="qr-preview">
+            <Typography variant="h4" margin="0">
+              Preview
+            </Typography>
+            <Typography variant="small" margin="t-2">
+              {file.name}
+            </Typography>
+            <img src={previewUrl} alt="Uploaded QR preview" />
+          </ToolSurface>
         </Container>
       ) : null}
 
       <Container display="block" margin="t-6" padding="0" aria-live="polite">
-        <Container showBorder padding="4" margin="0" className="qr-decoder-result">
+        <ToolSurface className="qr-decoder-result">
           <Typography variant="h4" margin="0">
             Result
           </Typography>
@@ -90,7 +94,7 @@ export function QrDecoderPage() {
               </div>
             </>
           )}
-        </Container>
+        </ToolSurface>
       </Container>
     </>
   );

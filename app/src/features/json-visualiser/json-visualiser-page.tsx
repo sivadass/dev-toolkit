@@ -1,4 +1,5 @@
-import { FormControls, Icon, PageHeader, Typography } from "cleanplate";
+import { FormControls, Icon, Typography } from "cleanplate";
+import { ToolPageHeader } from "../../components/tool-page-header";
 import { JsonGraphPane } from "./json-graph-pane";
 import { JsonTreePane } from "./json-tree-pane";
 import { useJsonVisualiser } from "./use-json-visualiser";
@@ -23,9 +24,10 @@ export function JsonVisualiserPage() {
 
   return (
     <div className="json-visualiser">
-      <PageHeader
+      <ToolPageHeader
+        kicker="Client-side · Private"
         title="JSON visualiser"
-        subtitle="Inspect JSON as an expandable tree or interactive graph - all in your browser."
+        subtitle="Inspect JSON as an expandable tree or interactive graph."
       />
 
       <div className="json-visualiser__workspace">

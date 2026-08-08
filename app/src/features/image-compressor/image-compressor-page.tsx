@@ -3,9 +3,10 @@ import {
   Button,
   Container,
   FormControls,
-  PageHeader,
   Typography,
 } from "cleanplate";
+import { ToolPageHeader } from "../../components/tool-page-header";
+import { ToolSurface } from "../../components/tool-surface";
 import { formatBytes } from "../../lib/format-bytes";
 import { ACCEPTED_INPUT_TYPES, type OutputMimeType } from "./compress-image";
 import { useImageCompressor } from "./use-image-compressor";
@@ -43,10 +44,35 @@ export function ImageCompressorPage() {
 
   return (
     <>
-      <PageHeader
+      <ToolPageHeader
+        kicker="Client-side · Private"
         title="Image compressor"
-        subtitle="Compress PNG, JPG, WebP & GIF locally — files never leave your device."
-        primaryCta={
+        subtitle="Compress PNG, JPG, WebP & GIF — animated GIFs become a single frame."
+      />
+
+      {error ? <Alert message={error} variant="error" margin="t-4" /> : null}
+
+      <div className="tool-primary-step">
+        <div className="tool-primary-step__input">
+          <FormControls.File
+            label="Image file"
+            variant="card"
+            multiple={false}
+            accept={ACCEPTED_INPUT_TYPES.join(",")}
+            value={file ? [file] : []}
+            onChange={(files) => setFilesFromControl(files)}
+            dropZoneText="Drop an image here"
+            buttonLabel="Browse"
+            isFluid
+            margin="0"
+            dataTestId="image-file"
+          />
+          <Typography variant="small" margin="0" className="tool-hint">
+            PNG, JPEG, WebP, or GIF up to 10 MB. Animated GIFs become a single
+            frame. PNG output ignores the quality setting (browser behavior).
+          </Typography>
+        </div>
+        <div className="tool-primary-step__action">
           <Button
             variant="solid"
             isLoading={isCompressing}
@@ -55,28 +81,8 @@ export function ImageCompressorPage() {
           >
             Compress
           </Button>
-        }
-      />
-
-      {error ? <Alert message={error} variant="error" margin="t-4" /> : null}
-
-      <FormControls.File
-        label="Image file"
-        variant="card"
-        multiple={false}
-        accept={ACCEPTED_INPUT_TYPES.join(",")}
-        value={file ? [file] : []}
-        onChange={(files) => setFilesFromControl(files)}
-        dropZoneText="Drop an image here"
-        buttonLabel="Browse"
-        isFluid
-        margin={["t-4", "b-2"]}
-        dataTestId="image-file"
-      />
-      <Typography variant="small" margin="0">
-        PNG, JPEG, WebP, or GIF up to 10 MB. Animated GIFs become a single frame.
-        PNG output ignores the quality setting (browser behavior).
-      </Typography>
+        </div>
+      </div>
 
       <Container display="block" margin="t-4" padding="0">
         <div className="options-row">
@@ -125,7 +131,7 @@ export function ImageCompressorPage() {
 
       <Container display="block" margin="t-6" padding="0">
         <div className="preview-split">
-          <Container showBorder padding="4" margin="0">
+          <ToolSurface>
             <Typography variant="h4" margin="0">
               Original
             </Typography>
@@ -141,8 +147,8 @@ export function ImageCompressorPage() {
                 Select an image to preview
               </Typography>
             )}
-          </Container>
-          <Container showBorder padding="4" margin="0">
+          </ToolSurface>
+          <ToolSurface>
             <Typography variant="h4" margin="0">
               Compressed
             </Typography>
@@ -171,7 +177,7 @@ export function ImageCompressorPage() {
                 Compress to preview
               </Typography>
             )}
-          </Container>
+          </ToolSurface>
         </div>
       </Container>
     </>
