@@ -9,8 +9,17 @@ describe("QrCodeGeneratorPage", () => {
     expect(screen.getByRole("button", { name: /generate/i })).toBeDisabled();
   });
 
+  it("renders preview panel with disabled download actions before generation", () => {
+    render(<QrCodeGeneratorPage />);
+    expect(screen.getByText("Preview")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /png/i })).toBeDisabled();
+    expect(screen.getByRole("button", { name: /svg/i })).toBeDisabled();
+  });
+
   it("renders ColorPicker fields for foreground and background", () => {
     render(<QrCodeGeneratorPage />);
+    expect(screen.getByText("Customization")).toBeInTheDocument();
+    expect(screen.getByText("Advanced")).toBeInTheDocument();
     expect(screen.getByTestId("qr-foreground")).toBeInTheDocument();
     expect(screen.getByTestId("qr-foreground-trigger")).toBeInTheDocument();
     expect(screen.getByTestId("qr-background")).toBeInTheDocument();
