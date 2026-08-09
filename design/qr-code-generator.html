@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/styles/tokens.css" />
@@ -75,26 +75,199 @@
               </ul>
             </nav>
           </aside>
-          <main id="main" class="tool-main">
-            <div class="tool-main__header">
-              <div>
-                <h1>QR Code generator</h1>
-                <p class="tool-main__hint">Generate a QR code in your browser.</p>
-              </div>
-              <button class="btn btn--primary" type="button">Generate</button>
-            </div>
-            <div class="field">
-              <label class="field__label" for="qr-text">Content</label>
-              <textarea class="field__control" id="qr-text" rows="4">https://sivadass.in</textarea>
-            </div>
-            <div class="panel">
-              <p class="panel__title">Preview</p>
-              <p class="tool-main__hint">QR preview placeholder</p>
+          <main id="main" class="tool-main tool-main--qr">
+            <h1 class="visually-hidden">QR Code generator</h1>
+
+            <div class="qr-layout">
+              <section class="qr-stage" aria-label="QR preview">
+                <div class="qr-preview-stage is-ready" data-qr-stage aria-live="polite">
+                  <div class="qr-preview-stage__plate">
+                    <svg
+                      class="qr-preview-stage__placeholder-qr"
+                      data-qr-placeholder
+                      hidden
+                      viewBox="0 0 29 29"
+                      width="256"
+                      height="256"
+                      role="img"
+                      aria-label="QR code placeholder"
+                    >
+                      <rect width="29" height="29" fill="#ffffff" />
+                      <g fill="#222222">
+                        <rect x="0" y="0" width="7" height="7" />
+                        <rect x="1" y="1" width="5" height="5" fill="#ffffff" />
+                        <rect x="2" y="2" width="3" height="3" />
+                        <rect x="22" y="0" width="7" height="7" />
+                        <rect x="23" y="1" width="5" height="5" fill="#ffffff" />
+                        <rect x="24" y="2" width="3" height="3" />
+                        <rect x="0" y="22" width="7" height="7" />
+                        <rect x="1" y="23" width="5" height="5" fill="#ffffff" />
+                        <rect x="2" y="24" width="3" height="3" />
+                        <rect x="8" y="2" width="1" height="1" />
+                        <rect x="10" y="2" width="1" height="1" />
+                        <rect x="12" y="3" width="1" height="1" />
+                        <rect x="9" y="4" width="1" height="1" />
+                        <rect x="11" y="5" width="1" height="1" />
+                        <rect x="14" y="2" width="1" height="1" />
+                        <rect x="16" y="4" width="1" height="1" />
+                        <rect x="18" y="3" width="1" height="1" />
+                        <rect x="8" y="8" width="1" height="1" />
+                        <rect x="10" y="8" width="1" height="1" />
+                        <rect x="12" y="9" width="1" height="1" />
+                        <rect x="14" y="8" width="1" height="1" />
+                        <rect x="16" y="10" width="1" height="1" />
+                        <rect x="18" y="8" width="1" height="1" />
+                        <rect x="20" y="9" width="1" height="1" />
+                        <rect x="9" y="11" width="1" height="1" />
+                        <rect x="11" y="12" width="1" height="1" />
+                        <rect x="13" y="11" width="1" height="1" />
+                        <rect x="15" y="13" width="1" height="1" />
+                        <rect x="17" y="12" width="1" height="1" />
+                        <rect x="19" y="14" width="1" height="1" />
+                        <rect x="8" y="14" width="1" height="1" />
+                        <rect x="10" y="15" width="1" height="1" />
+                        <rect x="12" y="16" width="1" height="1" />
+                        <rect x="14" y="15" width="1" height="1" />
+                        <rect x="16" y="17" width="1" height="1" />
+                        <rect x="18" y="16" width="1" height="1" />
+                        <rect x="20" y="18" width="1" height="1" />
+                        <rect x="22" y="10" width="1" height="1" />
+                        <rect x="24" y="12" width="1" height="1" />
+                        <rect x="26" y="11" width="1" height="1" />
+                        <rect x="22" y="14" width="1" height="1" />
+                        <rect x="25" y="15" width="1" height="1" />
+                        <rect x="23" y="17" width="1" height="1" />
+                        <rect x="8" y="20" width="1" height="1" />
+                        <rect x="10" y="22" width="1" height="1" />
+                        <rect x="12" y="21" width="1" height="1" />
+                        <rect x="14" y="23" width="1" height="1" />
+                        <rect x="16" y="22" width="1" height="1" />
+                        <rect x="18" y="24" width="1" height="1" />
+                        <rect x="20" y="23" width="1" height="1" />
+                        <rect x="22" y="20" width="1" height="1" />
+                        <rect x="24" y="22" width="1" height="1" />
+                        <rect x="26" y="24" width="1" height="1" />
+                        <rect x="20" y="26" width="1" height="1" />
+                        <rect x="16" y="26" width="1" height="1" />
+                        <rect x="12" y="26" width="1" height="1" />
+                      </g>
+                    </svg>
+                    <img class="qr-preview-stage__img" data-qr-live src="data:image/png;base64,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" width="256" height="256" alt="QR code for https://sivadass.in" />
+                  </div>
+                </div>
+
+                <div class="qr-stage__footer">
+                  <p class="qr-preview-meta" data-qr-meta>256×256px</p>
+                  <div class="qr-download-row">
+                    <button class="btn btn--secondary qr-download-btn" type="button" data-qr-download-png>
+                      <span class="material-symbols-rounded" aria-hidden="true">download</span>
+                      PNG
+                    </button>
+                    <button class="btn btn--ghost qr-download-btn" type="button" data-qr-download-svg>
+                      <span class="material-symbols-rounded" aria-hidden="true">download</span>
+                      SVG
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <section class="qr-inspector" aria-label="QR options">
+                <div class="field qr-inspector__field">
+                  <label class="field__label" for="qr-text">Content</label>
+                  <textarea class="field__control qr-inspector__textarea" id="qr-text" rows="4">https://sivadass.in</textarea>
+                  <p class="field__hint">Up to 2000 characters. Updates live.</p>
+                </div>
+
+                <div class="qr-inspector__section">
+                  <p class="qr-inspector__section-title">Colors</p>
+                  <div class="qr-options-row">
+                    <div class="field qr-inspector__field">
+                      <label class="field__label" for="qr-fg">Foreground</label>
+                      <div class="qr-color-field">
+                        <label class="qr-color-field__swatch-wrap">
+                          <input
+                            class="qr-color-field__picker"
+                            type="color"
+                            value="#222222"
+                            data-qr-picker-fg
+                            aria-label="Pick foreground color"
+                          />
+                          <span class="qr-color-field__swatch" data-qr-swatch-fg style="background:#222222" aria-hidden="true"></span>
+                        </label>
+                        <input class="field__control" id="qr-fg" type="text" value="#222222" spellcheck="false" />
+                      </div>
+                    </div>
+                    <div class="field qr-inspector__field">
+                      <label class="field__label" for="qr-bg">Background</label>
+                      <div class="qr-color-field">
+                        <label class="qr-color-field__swatch-wrap">
+                          <input
+                            class="qr-color-field__picker"
+                            type="color"
+                            value="#ffffff"
+                            data-qr-picker-bg
+                            aria-label="Pick background color"
+                          />
+                          <span class="qr-color-field__swatch" data-qr-swatch-bg style="background:#ffffff" aria-hidden="true"></span>
+                        </label>
+                        <input class="field__control" id="qr-bg" type="text" value="#ffffff" spellcheck="false" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <details class="qr-more">
+                  <summary class="qr-more__summary">
+                    <span class="material-symbols-rounded" aria-hidden="true">tune</span>
+                    Advanced
+                  </summary>
+                  <div class="qr-more__body">
+                    <div class="field qr-inspector__field">
+                      <label class="field__label" for="qr-logo">Logo</label>
+                      <div class="file-drop file-drop--compact" data-file-drop data-multiple="false">
+                        <input
+                          class="file-drop__input"
+                          id="qr-logo"
+                          type="file"
+                          accept="image/png,image/jpeg,image/svg+xml,image/webp"
+                        />
+                        <div class="file-drop__idle" data-file-drop-idle>
+                          <span class="file-drop__icon material-symbols-rounded" aria-hidden="true">image</span>
+                          <div class="file-drop__copy">
+                            <p class="file-drop__title">Add a logo</p>
+                            <p class="file-drop__subtitle">Drop or <span>browse</span></p>
+                          </div>
+                        </div>
+                        <ul class="file-drop__list" data-file-drop-list hidden></ul>
+                      </div>
+                      <p class="field__hint">Optional. Keep it small for scan reliability.</p>
+                    </div>
+                    <div class="qr-options-row">
+                      <div class="field qr-inspector__field">
+                        <label class="field__label" for="qr-size">Size (px)</label>
+                        <input class="field__control" id="qr-size" type="number" value="256" min="128" max="1024" step="32" />
+                      </div>
+                      <div class="field qr-inspector__field">
+                        <label class="field__label" for="qr-ecc">Error correction</label>
+                        <select class="field__control" id="qr-ecc">
+                          <option value="L">L (~7%)</option>
+                          <option value="M" selected>M (~15%)</option>
+                          <option value="Q">Q (~25%)</option>
+                          <option value="H">H (~30%)</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+              </section>
             </div>
           </main>
         </div>
       </div>
     </div>
+    <script src="assets/vendor/qrcode.min.js"></script>
     <script src="assets/scripts/nav.js"></script>
+    <script src="assets/scripts/file-drop.js"></script>
+    <script src="assets/scripts/qr-live.js"></script>
   </body>
 </html>
