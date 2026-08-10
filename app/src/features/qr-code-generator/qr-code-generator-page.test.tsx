@@ -3,26 +3,34 @@ import { describe, expect, it } from "vitest";
 import { QrCodeGeneratorPage } from "./qr-code-generator-page";
 
 describe("QrCodeGeneratorPage", () => {
-  it("renders title and disables Generate when content is empty", () => {
+  it("renders a visually hidden title and no Generate button", () => {
     render(<QrCodeGeneratorPage />);
-    expect(screen.getByText("QR Code generator")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /generate/i })).toBeDisabled();
+    expect(
+      screen.getByRole("heading", { name: "QR Code generator", level: 1 })
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("button", { name: /generate/i })
+    ).not.toBeInTheDocument();
+    expect(screen.queryByText("Preview")).not.toBeInTheDocument();
+    expect(screen.queryByText("Customization")).not.toBeInTheDocument();
   });
 
-  it("renders preview panel with disabled download actions before generation", () => {
+  it("disables download actions before a live result exists", () => {
     render(<QrCodeGeneratorPage />);
-    expect(screen.getByText("Preview")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /png/i })).toBeDisabled();
     expect(screen.getByRole("button", { name: /svg/i })).toBeDisabled();
   });
 
-  it("renders ColorPicker fields for foreground and background", () => {
+  it("renders content, colors, advanced, and logo controls", () => {
     render(<QrCodeGeneratorPage />);
-    expect(screen.getByText("Customization")).toBeInTheDocument();
+    expect(screen.getByText("Content")).toBeInTheDocument();
+    expect(screen.getByText(/Updates live/i)).toBeInTheDocument();
+    expect(screen.getByText("Colors")).toBeInTheDocument();
     expect(screen.getByText("Advanced")).toBeInTheDocument();
     expect(screen.getByTestId("qr-foreground")).toBeInTheDocument();
-    expect(screen.getByTestId("qr-foreground-trigger")).toBeInTheDocument();
     expect(screen.getByTestId("qr-background")).toBeInTheDocument();
-    expect(screen.getByTestId("qr-background-trigger")).toBeInTheDocument();
+    expect(screen.getByTestId("qr-logo-file")).toBeInTheDocument();
+    expect(screen.getByTestId("qr-size")).toBeInTheDocument();
+    expect(screen.getByTestId("qr-ecc")).toBeInTheDocument();
   });
 });
