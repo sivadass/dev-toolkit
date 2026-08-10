@@ -21,10 +21,23 @@ describe("QrCodeGeneratorPage", () => {
     expect(screen.getByRole("button", { name: /svg/i })).toBeDisabled();
   });
 
+  it("shows empty-state illustration and preview prompt", () => {
+    render(<QrCodeGeneratorPage />);
+    expect(screen.getByText("Enter content to preview")).toBeInTheDocument();
+    expect(
+      screen.getByText(/Type a link or message on the right/i)
+    ).toBeInTheDocument();
+    const art = document.querySelector(".qr-preview-stage__empty-art");
+    expect(art).toBeTruthy();
+    expect(art).toHaveAttribute("alt", "");
+  });
+
   it("renders content, colors, advanced, and logo controls", () => {
     render(<QrCodeGeneratorPage />);
     expect(screen.getByText("Content")).toBeInTheDocument();
-    expect(screen.getByText(/Updates live/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Up to 2000 characters\. Updates live\./i)
+    ).toBeInTheDocument();
     expect(screen.getByText("Colors")).toBeInTheDocument();
     expect(screen.getByText("Advanced")).toBeInTheDocument();
     expect(screen.getByTestId("qr-foreground")).toBeInTheDocument();

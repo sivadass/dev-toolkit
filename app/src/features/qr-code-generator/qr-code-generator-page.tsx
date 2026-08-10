@@ -6,6 +6,7 @@ import {
   Icon,
   Typography,
 } from "cleanplate";
+import emptyPreviewIllustration from "../../assets/illustrations/qr-empty-preview.png";
 import { LOGO_ACCEPTED_TYPES } from "./composite-qr-logo";
 import type { ErrorCorrectionLevel } from "./generate-qr-code";
 import { MAX_CONTENT_LENGTH, MAX_SIZE, MIN_SIZE } from "./generate-qr-code";
@@ -71,8 +72,8 @@ export function QrCodeGeneratorPage() {
               className={`qr-preview-stage${hasResult ? " is-ready" : " is-dimmed"}`}
               aria-live="polite"
             >
-              <div className="qr-preview-stage__plate">
-                {result ? (
+              {result ? (
+                <div className="qr-preview-stage__plate">
                   <img
                     className="qr-preview-stage__img"
                     src={result.pngDataUrl}
@@ -80,19 +81,37 @@ export function QrCodeGeneratorPage() {
                     width={result.size}
                     height={result.size}
                   />
-                ) : (
-                  <Typography
-                    variant="small"
-                    margin="0"
-                    className="qr-preview-stage__placeholder"
-                  >
-                    Enter content to preview
-                  </Typography>
-                )}
-              </div>
-            </div>
-
-            <div className="qr-stage__footer">
+                </div>
+              ) : (
+                <div className="qr-preview-stage__empty">
+                  <img
+                    className="qr-preview-stage__empty-art"
+                    src={emptyPreviewIllustration}
+                    alt=""
+                    width={280}
+                    height={280}
+                    decoding="async"
+                  />
+                  <div className="qr-preview-stage__empty-copy">
+                    <Typography
+                      variant="h6"
+                      align="center"
+                      margin="0"
+                      className="qr-preview-stage__empty-title"
+                    >
+                      Enter content to preview
+                    </Typography>
+                    <Typography
+                      variant="small"
+                      align="center"
+                      margin="0"
+                      className="qr-preview-stage__empty-hint"
+                    >
+                      Type a link or message on the right. The preview keeps up.
+                    </Typography>
+                  </div>
+                </div>
+              )}
               {result ? (
                 <Typography
                   variant="small"
@@ -102,6 +121,9 @@ export function QrCodeGeneratorPage() {
                   {`${result.size}×${result.size}px`}
                 </Typography>
               ) : null}
+            </div>
+
+            <div className="qr-stage__footer">
               <div className="qr-download-row">
                 <Button
                   variant="solid"
@@ -135,18 +157,20 @@ export function QrCodeGeneratorPage() {
           </section>
 
           <section className="qr-inspector" aria-label="QR options">
-            <FormControls.TextArea
-              label="Content"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              placeholder="https://example.com"
-              isFluid
-              margin="0"
-              dataTestId="qr-content"
-            />
-            <Typography variant="small" margin="0" className="tool-hint">
-              Up to {MAX_CONTENT_LENGTH} characters. Updates live.
-            </Typography>
+            <div className="qr-inspector__field">
+              <FormControls.TextArea
+                label="Content"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                placeholder="https://example.com"
+                isFluid
+                margin="0"
+                dataTestId="qr-content"
+              />
+              <Typography variant="small" margin="0" className="tool-hint">
+                Up to {MAX_CONTENT_LENGTH} characters. Updates live.
+              </Typography>
+            </div>
 
             <div className="qr-inspector__section">
               <Typography
@@ -191,22 +215,23 @@ export function QrCodeGeneratorPage() {
                 Advanced
               </summary>
               <div className="qr-advanced__body">
-                <FormControls.File
-                  label="Logo"
-                  variant="card"
-                  multiple={false}
-                  accept={LOGO_ACCEPTED_TYPES.join(",")}
-                  value={logoFile ? [logoFile] : []}
-                  onChange={(files) => setLogoFiles(files)}
-                  dropZoneText="Add a logo"
-                  buttonLabel="Browse"
-                  isFluid
-                  margin="0"
-                  dataTestId="qr-logo-file"
-                />
-                <Typography variant="small" margin="0" className="tool-hint">
-                  Optional. Keep it small for scan reliability.
-                </Typography>
+                <div className="qr-inspector__field">
+                  <FormControls.File
+                    label="Logo"
+                    variant="button"
+                    multiple={false}
+                    accept={LOGO_ACCEPTED_TYPES.join(",")}
+                    value={logoFile ? [logoFile] : []}
+                    onChange={(files) => setLogoFiles(files)}
+                    buttonLabel="Add a logo"
+                    isFluid
+                    margin="0"
+                    dataTestId="qr-logo-file"
+                  />
+                  <Typography variant="small" margin="0" className="tool-hint">
+                    Optional. Keep it small for scan reliability.
+                  </Typography>
+                </div>
 
                 <div className="qr-options-row qr-options-row--two">
                   <FormControls.Stepper
